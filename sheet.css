@@ -1,3 +1,11 @@
+input {
+	width:30px;
+}
+
+input:focus {
+	background-color:yellow;
+}
+
 a:link {
 	color:red;
 }

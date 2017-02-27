@@ -8,17 +8,20 @@
 	<body>
 		<script src="myscript.js" type="text/javascript"></script>
 
-		<h3>Any questions or doubts, please read the <a href="faq.html">FAQ</a>!</h3>
+		<h3>Any questions or doubts, please read the <a href="faq.html#pla">FAQ</a>!</h3>
 		<br>
 
 		<!-- Basic -->
-		<span>Job position: </span>
+		<span>Rank:</span>
 		<select name="Position" id="basic">
 			<option value="10258">Cabin Crew (first 12 months)</option>
+			<option value="6984.5">Cabin Crew (50% part time)</option>
+			<option value="10476.75">Cabin Crew (75% part time)</option>
 			<option value="11640.83">Cabin Crew (10/12 PPY)</option>
-			<option value="13969">Cabin Crew (more than 12 months)</option>
+			<option value="13969">Cabin Crew</option>
 			<option value="8782.5">Cabin Manager (50% part time)</option>
 			<option value="13173.75">Cabin Manager (75% part time)</option>
+			<option value="14637.5">Cabin Manager (10/12 PPY)</option>
 			<option value="17565">Cabin Manager</option>
 		</select>
 		<br>
@@ -26,34 +29,44 @@
 		<!-- Variable pay -->
 		<span>Variable pay for last month: £</span>
 		<input type="text" name="Variable" id="variable" value="0">
+		<a href="faq.html#variable" target="_blank">(where do I find my variable pay?)</a>
 		<br>
 
 		<!-- Language allowance -->
-		<span>How many languages do you speak other than English?</span>
+		<span>Languages spoken (other than English):</span>
 		<input type="text" name="Languages" id="languages" value="0">
 		<br>
 
+		<!-- FLEXI benefits -->
+		<span>Monthly FLEXI benefits contribution: £</span>
+		<input type="text" name="FLEXI" id="flexi" value="0">
+		<a href="faq.html#flexi" target="_blank">(what is this?)</a>
+		<br>
+
 		<!-- BAYE -->
-		<span>How much do you contribute to the BAYE scheme per month? £</span>
+		<span>Monthly BAYE contribution: £</span>
 		<input type="text" name="BAYE" id="baye" value="0">
+		<a href="faq.html#baye" target="_blank">(what is this?)</a>
 		<br>
 
 		<!-- SAYE -->
-		<span>How much do you contribute to the SAYE scheme per month? £</span>
+		<span>Monthly SAYE contribution: £</span>
 		<input type="text" name="SAYE" id="saye" value="0">
+		<a href="faq.html#saye" target="_blank">(what is this?)</a>
 		<br>
 
 		<!-- Student loans -->
 		<span>Are you repaying student loans?</span>
 		<select name="Student loans" id="loans">
 			<option value="0">No</option>
-			<option value="1">Yes, plan 1 (English or Welsh, enrolled before 01/09/2012 or Scottish or Northern Irish)</option>
-			<option value="2">Yes, plan 2 (English or Welsh, enrolled after 01/09/2012)</option>
+			<option value="1">Yes, plan 1</option>
+			<option value="2">Yes, plan 2</option>
 		</select>
+		<a href="faq.html#student" target="_blank">(how do I find out which plan I'm on?)</a>
 		<br>
 
 		<!-- Sick days -->
-		<span>How many days have you been sick last month? (FIRST YEAR CC ONLY)</span>
+		<span>Sick days (first year CC only):</span>
 		<select name="Sick days" id="sickness">
 			<option value="0">0</option>
 			<option value="1">1</option>
@@ -62,20 +75,29 @@
 		</select>
 		<br>
 
+		<!-- Unpaid leave -->
+		<span>Unpaid and/or compassionate leave days:</span>
+		<input type="text" name="Unpaid leave" id="unpaid" value="0">
+		<br>
+
+
 		<!-- Union -->
-		<span>If you are in the union, how much do you usually pay per month? £</span>
-		<input type="text" name="Union" id="union" value="0">
+		<span>Are you in the union?</span>
+		<select name="Union" id="union">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</select>
+		<a href="faq.html#union" target="_blank">(read this if you are in the union)</a>
 		<br>
 
 		<!-- Tax code -->
-		<span>Did you talk to HMRC to have your yearly personal allowance increased?</span>
+		<span>Did you talk to HMRC to update your tax code?</span>
 		<select name="Tax code" id="code">
 			<option value="11000">No</option>
 			<option value="11720">Yes</option>
 		</select>
+		<a href="faq.html#taxcode" target="_blank">(what is this?)</a>
 		<br>
-
-
 
 		<button type="button" onclick="calculate_net()">Calculate net pay!</button>
 		<br>

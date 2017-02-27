@@ -3,13 +3,26 @@ function calculate_net() {
 		basic = document.getElementById("basic").value,
 		variable = parseFloat(document.getElementById("variable").value),
 		languages = document.getElementById("languages").value,
+		flexi = document.getElementById("flexi").value,
 		baye = document.getElementById("baye").value,
 		saye = document.getElementById("saye").value,
 		plan = document.getElementById("loans").value,
 		sickness = document.getElementById("sickness").value,
+		unpaid = document.getElementById("unpaid").value,
 		union = document.getElementById("union").value,
 		income_allowance = document.getElementById("code").value;
 
+		// Handle empty input boxes
+		if (isNaN(variable))
+			variable = 0;
+		if (isNaN(languages))
+			languages = 0;
+		if (isNaN(flexi))
+			flexi = 0;
+		if (isNaN(baye))
+			baye = 0;
+		if (isNaN(saye))
+			saye = 0;
 
 	// Languages
 	if (languages > 0) 
@@ -20,10 +33,15 @@ function calculate_net() {
 	if (sickness > 0)
 		sick_deduction = (basic / 365 * sickness).toFixed(2);
 
+	// Unpaid leave
+	var unpaid_leave_deduction = 0;
+	if (unpaid > 0)
+		unpaid_leave_deduction = (basic / 365 * unpaid).toFixed(2);
+
 	basic = parseFloat((basic / 12).toFixed(2));
 
 	// Monthly gross
-	var gross = (basic + variable + languages - sick_deduction - baye).toFixed(2);
+	var gross = (basic + variable + languages - sick_deduction - unpaid_leave_deduction - flexi - baye).toFixed(2);
 
 	// Income tax
 	income_allowance /= 12;
@@ -53,6 +71,10 @@ function calculate_net() {
 			loan_repayment = ((yearly_gross - loan_allowance) * 0.09 / 12).toFixed(2);
 	}
 
+	// Union
+	if (union == "1")
+		union = 16;
+
 	// Net
 	var net = (gross - income_tax - ni_tax - saye - loan_repayment - union).toFixed(2);
 
@@ -61,9 +83,12 @@ function calculate_net() {
 		msg1 = "Your estimated net pay is £" + net + "<br>",
 		msg2 = "Income tax: £" + income_tax + "<br>" + 
 				"NI: £" + ni_tax + "<br>";
+	if (loan_repayment > 0)
+		msg2 += "Student loans: £" + loan_repayment + "<br>";
 
 	results.innerHTML = msg1;
 	breakdown.innerHTML = msg2;
+
 
 
 
